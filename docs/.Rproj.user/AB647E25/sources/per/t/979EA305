@@ -1,6 +1,6 @@
 {
     "id": "979EA305",
-    "path": "D:/PROJECTS/SECTRA-SUR/localidades.R",
+    "path": "D:/PROJECTS/SECTRA-SUR/docs/localidades.R",
     "project_path": "localidades.R",
     "type": "r_source",
     "hash": "2439759485",
@@ -12,7 +12,7 @@
     "properties": {
         "tempName": "Untitled1",
         "cursorPosition": "56,14",
-        "scrollLine": "27"
+        "scrollLine": "0"
     },
     "folds": "",
     "lastKnownWriteTime": 1602475966,

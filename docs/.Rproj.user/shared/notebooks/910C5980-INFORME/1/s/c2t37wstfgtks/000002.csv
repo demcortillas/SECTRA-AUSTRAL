@@ -1,1 +1,0 @@
-"0","writeOGR(obj=Pto_varas, dsn=""out"", layer=""Pto_varas"", driver=""ESRI Shapefile"",overwrite_layer=TRUE)"

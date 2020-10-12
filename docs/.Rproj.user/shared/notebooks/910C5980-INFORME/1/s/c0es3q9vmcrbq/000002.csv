@@ -1,1 +1,0 @@
-"0","Pto_varas_sp <- bind(PtoV_urb, PtoV_rur) # funcion del paquete raster que los une y hace coincidir por columna. Si no tiene valor en la columna pone NA"

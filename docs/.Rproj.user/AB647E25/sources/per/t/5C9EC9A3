@@ -1,6 +1,6 @@
 {
     "id": "5C9EC9A3",
-    "path": "D:/PROJECTS/SECTRA-SUR/INFORME.Rmd",
+    "path": "D:/PROJECTS/SECTRA-SUR/docs/INFORME.Rmd",
     "project_path": "INFORME.Rmd",
     "type": "r_markdown",
     "hash": "1190731641",
@@ -12,8 +12,8 @@
     "properties": {
         "tempName": "Untitled1",
         "cursorPosition": "110,296",
-        "scrollLine": "77",
-        "last_setup_crc32": "9565C1BE1c1a1ae1"
+        "scrollLine": "76",
+        "last_setup_crc32": ""
     },
     "folds": "",
     "lastKnownWriteTime": 1602475922,

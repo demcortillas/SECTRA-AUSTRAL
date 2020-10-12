@@ -1,6 +1,0 @@
-"0","PtoV_urb <- subset(Zonas_urbanas,COMUNA == 10109)"
-"0","PtoV_rur <- subset(Localidades_rurales,COMUNA == 10109)"
-"0",""
-"0","PtoV_rur<-spChFIDs(PtoV_rur, paste(""PtoV_rur"", row.names(PtoV_rur), sep=""."")) PtoV_urb<-spChFIDs(PtoV_urb, paste(""PtoV_urb"", row.names(PtoV_urb), sep="".""))"
-"2","Error: unexpected symbol in ""PtoV_rur<-spChFIDs(PtoV_rur, paste(""PtoV_rur"", row.names(PtoV_rur), sep=""."")) PtoV_urb""
-"

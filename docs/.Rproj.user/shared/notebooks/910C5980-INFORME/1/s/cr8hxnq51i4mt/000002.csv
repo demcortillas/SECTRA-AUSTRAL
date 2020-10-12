@@ -1,8 +1,0 @@
-"0","library(rgdal)"
-"0","library(DBI)"
-"0","library(dplyr)"
-"0","library(raster)"
-"0","library(sf)"
-"0","library(maptools)"
-"0","library(rgeos)"
-"0","options(scipen=999)"
