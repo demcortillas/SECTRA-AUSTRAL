@@ -1,0 +1,2 @@
+"0","con <- dbConnect(RSQLite::SQLite(), ""D:/PROJECTS/db/CENSO2017/microdatos/MVE.db"") "
+"0","DB <- tbl(con, ""PERSONAS"")"

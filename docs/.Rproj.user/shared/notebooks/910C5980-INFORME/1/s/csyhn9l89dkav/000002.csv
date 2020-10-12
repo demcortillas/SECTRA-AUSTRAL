@@ -1,0 +1,1 @@
+"0","Pto_varas <- DB %>% filter(COMUNA==10109) %>% collect()"
