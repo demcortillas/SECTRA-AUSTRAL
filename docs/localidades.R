@@ -1,13 +1,15 @@
 library(rgdal)
 library(DBI)
 library(dplyr)
-library(raster) #contiene función union
-library(sf)
+library(raster)
+library(maptools)
+library(rgeos)
+options(scipen=999)
 
 #### --- Preparación datos espaciales
 
-Zonas_urbanas <- readShapePoly(fn='R10/ZONA_C17.shp', IDvar=NULL)
-Localidades_rurales <- readShapePoly(fn='R10/LOCALIDAD_C17.shp', IDvar=NULL)
+Zonas_urbanas <- readShapePoly(fn='R10/ZONA_C17.shp', IDvar=NULL,proj4string=crs("+init=epsg:4674"))
+Localidades_rurales <- readShapePoly(fn='R10/LOCALIDAD_C17.shp', IDvar=NULL,proj4string=crs("+init=epsg:4674"))
 
 names(Zonas_urbanas) # revisamos el atributo o columna de cada una de las capas
 names(Localidades_rurales)
@@ -36,27 +38,33 @@ Pto_varas <- DB %>% filter(COMUNA==10109) %>% collect() #desde aquí podemos tra
 
 ### ¿cuántas personas hay por zona o por localidad?
 
-GEOCODIGO<-unique(Pto_varas$ID_ZONA_LOC)
+GEOCODIGO<-unique(Pto_varas$ID_ZL_PER)
 CANT_PER<-NULL
 
-for(localidad in unique(Pto_varas$ID_ZONA_LOC)){
-  A<-subset(Pto_varas,ID_ZONA_LOC == localidad)
+for(localidad in unique(Pto_varas$ID_ZL_PER)){
+  A<-subset(Pto_varas,ID_ZL_PER == localidad)
   CANT_PER<-c(CANT_PER,dim(A)[1])
 }
 
 data<-data.frame(GEOCODIGO=as.character(GEOCODIGO),CANT_PER)
 
-hist(data$GEOCODIGO)
-
-
+hist(data$CANT_PER)
 
 ### --- cruzar la data mediante columna GEOCODIGO
 
-Pto_varas<-merge(x=Pto_varas_sp,y=data,by.x="GEOCODIGO",by.y="GEOCODIGO")
+Pto_varas1<-merge(x=Pto_varas_sp,y=data,by.x="GEOCODIGO",by.y="GEOCODIGO")
+writeOGR(obj=Pto_varas1, dsn="out", layer="Pto_varas_no-project", driver="ESRI Shapefile",overwrite_layer = TRUE)
 
-### exportarlo
 
-writeOGR(obj=Pto_varas, dsn="out", layer="Pto_varas", driver="ESRI Shapefile")
+### reproject
+
+Pto_varas2<-spTransform(Pto_varas1,CRS("+init=epsg:32719"))
+writeOGR(obj=Pto_varas2, dsn="out", layer="Pto_varas_project", driver="ESRI Shapefile",overwrite_layer = TRUE)
+
+
+
+
+
 
 
 

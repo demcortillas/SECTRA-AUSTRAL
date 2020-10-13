@@ -3,7 +3,7 @@
     "path": "D:/PROJECTS/SECTRA-SUR/docs/localidades.R",
     "project_path": "localidades.R",
     "type": "r_source",
-    "hash": "2439759485",
+    "hash": "398534233",
     "contents": "",
     "dirty": false,
     "created": 1602449283725.0,
@@ -11,15 +11,15 @@
     "relative_order": 1,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "56,14",
-        "scrollLine": "0"
+        "cursorPosition": "62,0",
+        "scrollLine": "40"
     },
     "folds": "",
-    "lastKnownWriteTime": 1602475966,
+    "lastKnownWriteTime": 1602555836,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1602475966077,
+    "last_content_update": 1602555836398,
     "read_only": false,
     "read_only_alternatives": []
 }
