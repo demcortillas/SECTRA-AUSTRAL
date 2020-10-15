@@ -4,7 +4,7 @@ library(dplyr)
 library(raster)
 library(maptools)
 library(rgeos)
-options(scipen=999)
+options(scipen=999) # para que no haya notacion cientifica
 
 #### --- Preparación datos espaciales
 
@@ -29,37 +29,37 @@ View(Pto_varas_sp@data)
 
 #### --- Microdatos
 
-con <- dbConnect(RSQLite::SQLite(), "D:/PROJECTS/db/CENSO2017/microdatos/MVE.db") #Conexión con la base de datos
+con <- dbConnect(RSQLite::SQLite(), "MVE.db") #Conexión con la base de datos
 DB <- tbl(con, "PERSONAS") # conexión con la tabla de personas
 
 #### --- Filtrar por microdatos de comuna
 
 Pto_varas <- DB %>% filter(COMUNA==10109) %>% collect() #desde aquí podemos tratarlo como dataframe típico
 
-### ¿cuántas personas hay por zona o por localidad?
+#### --- ¿Cuántas personas hay por zona o por localidad?
 
 GEOCODIGO<-unique(Pto_varas$ID_ZL_PER)
 CANT_PER<-NULL
 
-for(localidad in unique(Pto_varas$ID_ZL_PER)){
-  A<-subset(Pto_varas,ID_ZL_PER == localidad)
+for(loc in unique(Pto_varas$ID_ZL_PER)){
+  A<-subset(Pto_varas,ID_ZL_PER == loc)
   CANT_PER<-c(CANT_PER,dim(A)[1])
 }
 
-data<-data.frame(GEOCODIGO=as.character(GEOCODIGO),CANT_PER)
 
-hist(data$CANT_PER)
+CANT_PER<-data.frame(GEOCODIGO,CANT_PER)
 
-### --- cruzar la data mediante columna GEOCODIGO
+#hist(data$CANT_PER)
 
-Pto_varas1<-merge(x=Pto_varas_sp,y=data,by.x="GEOCODIGO",by.y="GEOCODIGO")
-writeOGR(obj=Pto_varas1, dsn="out", layer="Pto_varas_no-project", driver="ESRI Shapefile",overwrite_layer = TRUE)
+### --- Cruzar la data mediante columna GEOCODIGO
 
+#Pto_varas1 <- merge(x = Pto_varas_sp, y = data, by.x="GEOCODIGO",by.y="GEOCODIGO") ### JOIN
+#writeOGR(obj=Pto_varas1, dsn="out", layer="Pto_varas_no-project", driver="ESRI Shapefile",overwrite_layer = TRUE)
 
-### reproject
+### --- Reproject
 
-Pto_varas2<-spTransform(Pto_varas1,CRS("+init=epsg:32719"))
-writeOGR(obj=Pto_varas2, dsn="out", layer="Pto_varas_project", driver="ESRI Shapefile",overwrite_layer = TRUE)
+#Pto_varas2<-spTransform(Pto_varas1,CRS("+init=epsg:32719")) #reproyectar
+#writeOGR(obj=Pto_varas2, dsn="out", layer="Pto_varas_project", driver="ESRI Shapefile",overwrite_layer = TRUE)
 
 
 
