@@ -1,7 +1,8 @@
 # SECTRA-AUSTRAL
 
 Este repositorio tiene el propósito de almacenar scripts útiles para identificar vulnerabilidad
-territorial en la comuna de Puerto Varas. Existen 4 scripts con el propósito de determinar Cantidad de
+territorial en la comuna de Puerto Varas para la zonificación del área rural de la comuna.
+Existen 4 scripts con el propósito de determinar Cantidad de
 Personas, Escolaridad del o la jefe de hogar,  Cantidad de casas con materialidad *aceptable*, *recuperable*
 e *irrecuperable*. 
 
