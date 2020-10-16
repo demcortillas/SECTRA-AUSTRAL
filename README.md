@@ -8,8 +8,8 @@ e irrecuperable.
 >-Paquetes ocupados: rgdal, DBI, dplyr, raster, maptools, rgeos
 >
 
->
-> 1.Intro.R: 
+
+ 1.Intro.R: 
 >         Lee los datos espaciales, los filtra y los une mediante la función bind().
 >	  Posteriormente se conecta con la base de datos almacenada en formato .db.
 >	  El propósito que tiene trabajar en dicho formato, es que R dispone de la
