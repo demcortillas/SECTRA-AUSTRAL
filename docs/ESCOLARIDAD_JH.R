@@ -1,11 +1,3 @@
-library(rgdal)
-library(DBI)
-library(dplyr)
-library(raster)
-library(maptools)
-library(rgeos)
-options(scipen=999)
-
 # Conexion y filtro por comuna
 
 con                 <- dbConnect(RSQLite::SQLite(), "MVE.db") #Conexión con la base de datos
